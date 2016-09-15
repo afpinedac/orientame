@@ -61,7 +61,11 @@ composer.phar
 /vendor
 /bower_components
 /node_modules
-/node_modules
 vendor/
 .env
 tests/_output/*
+
+/.idea
+.env
+._*
+
