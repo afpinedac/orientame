@@ -9,7 +9,10 @@ class User {
         if (static::$db) {
             return static::$db;
         }
-        return new PDO(getenv('DB_HOST'), getenv('DB_USER'), getenv('DB_PASS'));
+        static::$db = new PDO(getenv('DB_HOST'), getenv('DB_USER'), getenv('DB_PASS'));
+        static::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        return static::$db;
+
     }
 
 
@@ -42,10 +45,8 @@ class User {
     public static function setAnswers($id, $data) {
         $r = static::db()->exec("UPDATE users set answers = '{$data->answers}' WHERE id = {$id}");
 
-        return  $r !== false ? static::find($id) : false;
+        return $r !== false ? static::find($id) : false;
     }
-
-
 
 
     public static function findByFacebook($id) {
