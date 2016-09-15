@@ -1,7 +1,8 @@
 <?php
 
-require 'model/User.php';
 require 'boostrap.php';
+require 'model/User.php';
+
 
 class MainController {
 
