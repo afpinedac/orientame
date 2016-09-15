@@ -9,7 +9,7 @@ class User {
         if (static::$db) {
             return static::$db;
         }
-        return new PDO('mysql:host=localhost;dbname=orientame', "root", 'root');
+        return new PDO(getenv('DB_HOST'), getenv('DB_USER'), getenv('DB_PASS'));
     }
 
 
