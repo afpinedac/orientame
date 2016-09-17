@@ -9,7 +9,7 @@ class User {
         if (static::$db) {
             return static::$db;
         }
-        static::$db = new PDO(getenv('DB_HOST'), getenv('DB_USER'), getenv('DB_PASS'));
+        static::$db = new PDO("mysql:host=127.0.0.1;dbname=orientame", "root", "ticad3mia!..2016");
         static::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return static::$db;
 
