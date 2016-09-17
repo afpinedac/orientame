@@ -14,6 +14,7 @@ var paths = {
     'localResources' : '',
     'jquery_ui' : 'node_modules/jquery-ui-dist',
     'chart' : 'node_modules/chart.js/dist',
+    'bootrap_social' : 'node_modules/bootstrap-social'
 }
 
 elixir(function (mix) {
@@ -34,7 +35,8 @@ elixir(function (mix) {
             paths.bootstrap + "/css/bootstrap.min.css",
             paths.animate + "/animate.min.css",
             paths.font_awesome + "/css/font-awesome.min.css",
-            paths.jquery_ui + "/jquery-ui.min.css"
+            paths.jquery_ui + "/jquery-ui.min.css",
+            paths.bootrap_social + "/bootstrap-social.css",
         ], 'assets/build/src/orientame.css', './')
 
         /*
@@ -47,7 +49,7 @@ elixir(function (mix) {
     }
 );
 
-gulp.task('js-watch', ['js'], function () {
+gulp.task('js-watch', function () {
     browserSync.reload();
 });
 
@@ -55,12 +57,12 @@ gulp.task('js-watch', ['js'], function () {
 gulp.task('live', function () {
     console.log('Starting the live reload server');
     browserSync.init({
-        //proxy: 'dev.ticademia.com'
+        proxy: 'dev.orientame.com'
     });
 
-    gulp.watch("./public/assets/js/**/*.js", ['js-watch']);
-    gulp.watch("./resources/views/**/*.blade.php", ['js-watch']);
-    //gulp.watch("./app/Http/Controllers/**/*.php", ['js-watch']);
+    gulp.watch("./assets/js/**/*.js", ['js-watch']);
+    //gulp.watch("./resources/views/**/*.blade.php", ['js-watch']);
+    gulp.watch("./view/**/*.php", ['js-watch']);
 });
 
 

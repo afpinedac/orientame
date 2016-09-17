@@ -9,11 +9,13 @@ class MainController {
 
     public function getResults($id) {
 
-        $user = User::find($id);
+        $user = User::find((int)($id / FACTOR));
 
-        $view = $user ? 'results.php' : 'user_not_found.php';
+        $view = $user ? '_results.php' : '_user_not_found.php';
 
         $user = (object)$user;
+
+        $user->token = \Firebase\JWT\JWT::encode(['id' => $user->id], getenv('APP_KEY'));
 
         require('./view/_main.php');
     }
