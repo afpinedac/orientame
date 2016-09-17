@@ -1,12 +1,12 @@
-;$(document).ready(function () {
+$(document).ready(function () {
 
-    var Orientame = Orientame || {};
+    Orientame = Orientame || {};
 
     Orientame.charts = (function ($, _) {
 
         var answers = $("#profile").data('answers');
 
-        var __init = function () {
+        var _init = function () {
 
             interest();
             personality();
@@ -130,13 +130,15 @@
 
 
         return {
-            render: __init()
+            render: _init
         }
 
 
     })($, _);
 
 
-    Orientame.charts.render();
+     Orientame.charts.render();
 
-})
+
+
+});

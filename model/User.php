@@ -1,6 +1,5 @@
 <?php
 
-
 class User {
 
     private static $db = NULL;
@@ -10,6 +9,8 @@ class User {
             return static::$db;
         }
         static::$db = new PDO(getenv('DB_HOST'), getenv('DB_USER'), getenv('DB_PASS'));
+        //DB_HOST=mysql:host=127.0.0.1;dbname=orientame;port=3306  DB_USER=root DB_PASS=root
+        //static::$db = new PDO('mysql:host=127.0.0.1;dbname=orientame;port=3306', 'root', 'root');
         static::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return static::$db;
 
@@ -34,6 +35,16 @@ class User {
         $r = static::db()->exec($q);
 
         return $r !== false ? static::find($u['id']) : false;
+    }
+
+    public static function setImage($id, $image) {
+
+        $q = "UPDATE users set img_interests = '{$image['interests']}', img_skills = '{$image['interests']}',img_personality = '{$image['personality']}' WHERE id = {$id}";
+
+        $r = static::db()->exec($q);
+
+        return $r !== false ? static::find($id) : false;
+
     }
 
 
