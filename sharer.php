@@ -34,14 +34,14 @@ Class Sharer {
             case 'facebook':
 
                 $helper = static::getConfig('facebook')->getRedirectLoginHelper();
-                $loginURL = $helper->getLoginUrl('http://localhost/orientame/sharer.php?action=callback&network=facebook', ['public_profile', 'publish_actions']);
+                $loginURL = $helper->getLoginUrl(FB_CALLBACK, ['public_profile', 'publish_actions']);
                 header("location:$loginURL");
                 break;
 
             case 'twitter':
 
                 $connection = static::getConfig('twitter');
-                $request_token = $connection->oauth('oauth/request_token', array('oauth_callback' => 'http://dev.orientame.com/sharer.php?action=callback&network=twitter'));
+                $request_token = $connection->oauth('oauth/request_token', array('oauth_callback' => TW_CALLBACK));
                 $loginURL = $connection->url('oauth/authorize', array('oauth_token' => $request_token['oauth_token']));
                 header("location:$loginURL");
                 break;
