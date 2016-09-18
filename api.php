@@ -17,6 +17,7 @@ class Orientame {
 
         echo "<pre>";
         var_dump($_SERVER);
+        var_dump(getenv('AUTH_TOKEN'));
         echo "</pre>";
         die();
 
