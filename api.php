@@ -62,14 +62,16 @@ class Orientame {
 
                         $response = array(
                             'code' => \Firebase\JWT\JWT::encode(['uid' => $user->id, 'network' => strtolower($_GET['type'])], getenv('APP_KEY'))
-                    );
+                        );
 
                     }
                     break;
                 case 'GET' :
 
                     if ($action == 'user') {
-                        $response = User::find($_GET['id']);
+                        $response = (object)User::find($_GET['id']);
+                        $response->_id = $response->id * FACTOR;
+                        $response->url = URL_PROFILE . $response->_id;
                     }
                     break;
             }
