@@ -109,6 +109,7 @@ Class Sharer {
 
             }
         } catch (Exception $e) {
+            error_log($e->getMessage());
             Flash::error('Ha ocurrido un error, por favor inténtelo mas tarde');
         }
 
@@ -118,8 +119,7 @@ Class Sharer {
 }
 
 $action = isset($_GET['action']) ? $_GET['action'] : '';
-Sharer::{
-    $action}($_GET);
+Sharer::{$action}($_GET);
 
 
 

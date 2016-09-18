@@ -34,7 +34,7 @@ class Orientame {
                             'personality' => $_POST['personality'],
                         );
 
-                        Image::configure(array('driver' => 'imagick'));
+                        Image::configure(array('driver' => 'gd'));
 
                         $imgCanvas = Image::canvas(600, 1200);
 
