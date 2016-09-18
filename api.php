@@ -14,6 +14,12 @@ class Orientame {
         $action = $_GET['action'];
 
 
+
+        echo "<pre>";
+        var_dump($_SERVER);
+        echo "</pre>";
+        die();
+
         if (!isset($_SERVER['HTTP_AUTH_TOKEN']) || $_SERVER['HTTP_AUTH_TOKEN'] != getenv('AUTH_TOKEN')) {
             http_response_code(401);
             echo json_encode((object)array('error' => 'Token de autorización inválido'));
