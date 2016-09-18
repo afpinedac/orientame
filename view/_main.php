@@ -13,8 +13,8 @@
 <?php require "$view" ?>
 
 
-<?php if (Flash::hasMessage()) {
-    $msgs = Flash::getMessage();
+<?php if (\Flash::hasMessage()) {
+    $msgs = \Flash::getMessage();
     ?>
     <script>
         <?php foreach ($msgs as $msg) { ?>
@@ -28,8 +28,8 @@
     </script>
     <?php
 }
-if (Flash::hasError()) {
-    $errors = Flash::getError();
+if (\Flash::hasError()) {
+    $errors = \Flash::getError();
     ?>
     <script>
         <?php foreach ($errors as $error) { ?>
