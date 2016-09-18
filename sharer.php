@@ -1,6 +1,6 @@
 <?php
 
-//session_start();
+session_start();
 require 'boostrap.php';
 use Abraham\TwitterOAuth\TwitterOAuth;
 
