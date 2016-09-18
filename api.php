@@ -25,7 +25,10 @@ class Orientame {
             switch (strtoupper($method)) {
                 case 'POST' :
                     if ($action == 'user') {
-                        $response = User::createOrUpdate((object)$_POST);
+                        $response = (object)User::createOrUpdate((object)$_POST);
+                        $response->_id = $response->id * FACTOR;
+                        $response->url = URL_PROFILE . $response->_id;
+
                     } else if ($action == 'answer') {
                         $response = User::setAnswers($_GET['id'], (object)$_POST);
                     } else if ($action == 'clean') {
