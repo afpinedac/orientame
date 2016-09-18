@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 require 'boostrap.php';
 require 'model/User.php';
 

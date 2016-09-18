@@ -10,7 +10,9 @@
 
 </head>
 <body>
-<?php require "$view" ?>
+<?php
+require "$view"
+?>
 
 
 <?php if (\Flash::hasMessage()) {
