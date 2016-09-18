@@ -21,3 +21,6 @@ if(getenv('APP_ENV') == 'development'){
 
 
 
+echo FB_CALLBACK;
+
+
