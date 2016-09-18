@@ -17,10 +17,3 @@ if(getenv('APP_ENV') == 'development'){
     define('FB_CALLBACK','http://orientacionvocacional.guiame.org/sharer.php?action=callback&network=facebook');
     define('TW_CALLBACK','http://orientacionvocacional.guiame.org/sharer.php?action=callback&network=twitter');
 }
-
-
-
-
-echo FB_CALLBACK;
-
-
