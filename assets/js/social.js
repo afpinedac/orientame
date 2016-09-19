@@ -17,6 +17,9 @@ $(document).ready(function () {
             $.ajax({
                 url: 'api.php?action=share&type=' + network.toLowerCase(),
                 type: 'POST',
+                headers: {
+                    'token' : '$4mr$8xy5vPxsn'
+                },
                 data: {
                     interests: interests,
                     skills: skills,
