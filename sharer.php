@@ -109,7 +109,7 @@ Class Sharer {
 
             }
         } catch (Exception $e) {
-            error_log($e->getMessage());
+            error_log("Custom:" .  $e->getMessage());
             Flash::error('Ha ocurrido un error, por favor inténtelo mas tarde');
         }
 
