@@ -16,32 +16,26 @@ $(document).ready(function () {
 
         var interest = function () {
 
+            var dataPoints = _.map(answers[0], function (v) {
+                return v * 100;
+            });
+
 
             var ctx = $("#interests");
 
             var data = {
-                labels: ["Eating", "Drinking", "Sleeping", "Designing", "Coding", "Cycling", "Running"],
+                labels: ["Realista", "Investigativo", "Artístico", "Social", "Emprendedor", "Convencional"],
                 datasets: [
                     {
-                        label: "My First dataset",
+                        label: "Mis intereses",
                         backgroundColor: "rgba(179,181,198,0.2)",
                         borderColor: "rgba(179,181,198,1)",
                         pointBackgroundColor: "rgba(179,181,198,1)",
                         pointBorderColor: "#fff",
                         pointHoverBackgroundColor: "#fff",
                         pointHoverBorderColor: "rgba(179,181,198,1)",
-                        data: [65, 59, 90, 81, 56, 55, 40]
-                    },
-                    /*  {
-                     label: "My Second dataset",
-                     backgroundColor: "rgba(255,99,132,0.2)",
-                     borderColor: "rgba(255,99,132,1)",
-                     pointBackgroundColor: "rgba(255,99,132,1)",
-                     pointBorderColor: "#fff",
-                     pointHoverBackgroundColor: "#fff",
-                     pointHoverBorderColor: "rgba(255,99,132,1)",
-                     data: [28, 48, 40, 19, 96, 27, 100]
-                     }*/
+                        data: dataPoints
+                    }
                 ]
             };
 
@@ -89,12 +83,16 @@ $(document).ready(function () {
 
             var ctx = $("#skills");
 
+            var dataPoints = _.map(answers[2], function (v) {
+                return v * 100;
+            });
+
 
             var data = {
-                labels: ["January", "February", "March", "April", "May"],
+                labels: ["Razonamiento Aritmético", "Vocabulario", "Espacio tridimensional", "Cálculo", "Comparación de nombres", "Mapeo de Objetos"],
                 datasets: [
                     {
-                        label: "My First dataset",
+                        label: "Mis habilidades",
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
@@ -104,7 +102,7 @@ $(document).ready(function () {
                             'rgba(255, 159, 64, 0.2)'
                         ],
                         borderWidth: 1,
-                        data: [65, 59, 80, 81, 56],
+                        data: dataPoints,
                     }
                 ]
             };
@@ -137,8 +135,7 @@ $(document).ready(function () {
     })($, _);
 
 
-     Orientame.charts.render();
-
+    Orientame.charts.render();
 
 
 });

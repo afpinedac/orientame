@@ -28,8 +28,6 @@ $(document).ready(function () {
                 }
             }).done(function (r) {
                 location.href = 'sharer.php?action=share&code=' + r.code;
-                //console.log(r);
-                //alert('Información compartida correctamente');
             }).fail(function (e) {
                 alert('Hubo un error compartiendo la información');
             });

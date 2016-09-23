@@ -11,7 +11,8 @@
 <br>
 
 <div class="row-fluid" style="" id="profile" data-answers="<?php echo $user->answers ?>"
-     data-token="<?php echo $user->token ?>">
+     data-token="<?php echo $user->token ?>"
+     >
 
     <div class="col-sm-10 col-sm-offset-1">
 
@@ -22,9 +23,7 @@
             <div class="row">
                 <div class="col-xs-6 col-md-6">
                     <a href="#" class="thumbnail">
-                        <img
-                            src="http://fdzeta.com/data/MetaMirrorCache/_img_media_4fe247229f26aaee75ebb32d85db2e844452a402_0_64_3520_3317a7e76a89a2cfe21d0d30292be64d.jpg"
-                            alt="...">
+                        <img src="<?php echo  trim($user->url_image); ?> " width="400" height="400">
                     </a>
                 </div>
                 <p><strong>Nombre:</strong> <?php echo ucfirst($user->first_name) . " " . ucfirst($user->last_name) ?>
@@ -82,29 +81,50 @@
 
     var stage = new createjs.Stage("personality");
 
-    var createRangePicker = function (y, position) {
+    var createRangePicker = function (y, e) {
 
+        //add the circle
         var gradient = new createjs.Shape();
         gradient.graphics.beginFill("#B3B5C6").drawRoundRect(0, y, 400, 9, 4, 4);
         stage.addChild(gradient);
 
-
+        //add the line
         var circle = new createjs.Shape();
-        circle.graphics.beginFill("#000").drawCircle(position, y - 12, 12);
+        circle.graphics.beginFill("#000").drawCircle(e.position, y - 12, 12);
         circle.x = 0;
         circle.y = 17;
         stage.addChild(circle);
+
+        //add the text
+        var leftText = new createjs.Text(e.leftText, "20px Arial", "#ff7700");
+        leftText.x = 0;
+        leftText.y = y;
+        leftText.textBaseline = "alphabetic";
+        stage.addChild(leftText);
+
+        var rightText = new createjs.Text(e.righText, "20px Arial", "#ff7700");
+        rightText.x = 400;
+        rightText.y = y;
+        rightText.textBaseline = "alphabetic";
+        stage.addChild(rightText);
+
+
         return circle;
 
     }
 
     function init() {
 
-        var ranges = [50, 40, 30, 80];
+        var ranges = [
+            {position : 50, leftText : 'Introvertido' , righText:'Extrovertido'},
+            {position : 40, leftText : 'Sensitivo' , righText:'Intuitivo'},
+            {position : 30, leftText : 'Pensativo' , righText:'Sentimental'},
+            {position : 90, leftText : 'Juzgador' , righText:'Perceptor'},
+        ];
         var pickers = [];
 
         _.each(ranges, function (e, i) {
-            pickers[i] = createRangePicker((i + 1) * 40, e);
+            pickers[i] = createRangePicker((i + 1) * 40, ranges[i]);
         });
 
         stage.update();
@@ -118,15 +138,8 @@
                     pickers[i].x += 3;
                 }
             });
-            /*if (circle.x < 300) {
-             circle.x += 25;
-             }*/
             stage.update(event); // important!!
         }
-
-
-        // stage.addChild(rect);
-
     }
     init();
 </script>
