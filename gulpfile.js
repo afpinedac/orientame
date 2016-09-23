@@ -35,10 +35,10 @@ elixir(function (mix) {
 
         mix.styles([
             paths.bootstrap + "/css/bootstrap.min.css",
-            paths.animate + "/animate.min.css",
             paths.font_awesome + "/css/font-awesome.min.css",
             paths.jquery_ui + "/jquery-ui.min.css",
             paths.bootrap_social + "/bootstrap-social.css",
+            paths.animate + "/animate.min.css"
         ], 'assets/build/src/orientame.css', './')
 
         /*
