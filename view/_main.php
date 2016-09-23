@@ -10,6 +10,8 @@
 
 </head>
 <body>
+<div id="cover-display">
+</div>
 <?php
 require "$view"
 ?>
@@ -51,7 +53,33 @@ if (\Flash::hasError()) {
 <footer>
     <script>
         var Orientame = {};
+        Orientame.UI = Orientame.UI || {};
+        Orientame.UI.coverOn = function () {
+            $("#cover-display").show();
+        }
+        Orientame.UI.coverOff = function () {
+            $("#cover-display").hide();
+        }
+
+
     </script>
+
+    <style>
+
+
+        #cover-display {
+            display: none;
+            position: fixed;
+            z-index: 999999;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(255, 255, 255, .8) url('http://www.brainpecks.com/wp-content/uploads/2014/02/clock-loading.gif') 50% 50% no-repeat;
+            background-size: 250px 200px;
+        }
+
+    </style>
 </footer>
 </html>
 

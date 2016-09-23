@@ -27,6 +27,7 @@ Class Sharer {
 
         $data = \Firebase\JWT\JWT::decode($data['code'], getenv('APP_KEY'), ['HS256']);
         $_SESSION['network_uid'] = $data->uid;
+        $_SESSION['network_message'] = $data->message;
 
         sleep(2);
 
@@ -75,14 +76,12 @@ Class Sharer {
                         //$_SESSION['facebook_access_token'] = (string)$accessToken;
 
                         $fb->post('/me/photos', array(
-                            'message' => static::MESSAGE,
+                            'message' => $_SESSION['network_message'],
                             $fb->fileToUpload($image)
                         ), $accessToken);
 
                         Flash::message('Resultados compartidos en Facebook');
-
                     }
-
 
                     break;
 
@@ -101,7 +100,7 @@ Class Sharer {
                     ));
 
                     $status = $connection->post('statuses/update', array(
-                        'status' => static::MESSAGE,
+                        'status' => $_SESSION['network_message'],
                         'media_ids' => $upload->media_id
                     ));
                     Flash::message('Resultados compartidos en Twitter');
@@ -109,9 +108,18 @@ Class Sharer {
 
             }
         } catch (Exception $e) {
-            error_log("Custom:" .  $e->getMessage());
+            error_log("Custom:" . $e->getMessage());
+
+
+            echo "<pre>";
+            var_dump($e->getMessage());
+            echo "</pre>";
+            die();
             Flash::error('Ha ocurrido un error, por favor inténtelo mas tarde');
+        } finally {
+            unset($_SESSION['network_message']);
         }
+
 
         header('Location: profile.php?id=' . ($uid * FACTOR));
     }
@@ -119,7 +127,8 @@ Class Sharer {
 }
 
 $action = isset($_GET['action']) ? $_GET['action'] : '';
-Sharer::{$action}($_GET);
+Sharer::{
+    $action}($_GET);
 
 
 

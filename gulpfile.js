@@ -14,7 +14,8 @@ var paths = {
     'localResources' : '',
     'jquery_ui' : 'node_modules/jquery-ui-dist',
     'chart' : 'node_modules/chart.js/dist',
-    'bootrap_social' : 'node_modules/bootstrap-social'
+    'bootrap_social' : 'node_modules/bootstrap-social',
+    'bootbox' : 'node_modules/bootbox'
 }
 
 elixir(function (mix) {
@@ -28,7 +29,8 @@ elixir(function (mix) {
                 paths.underscore + "/underscore-min.js",
                 paths.bootstrap_notify + "/bootstrap-notify.min.js",
                 paths.jquery_ui + "/jquery-ui.min.js",
-                paths.chart + "/Chart.min.js"
+                paths.chart + "/Chart.min.js",
+                paths.bootbox  + '/bootbox.js'
             ], 'assets/build/src/orientame.js', './');
 
         mix.styles([

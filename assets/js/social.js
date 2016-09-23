@@ -14,23 +14,45 @@ $(document).ready(function () {
             var skills = document.getElementById('skills').toDataURL();
             var personality = document.getElementById('personality').toDataURL();
 
-            $.ajax({
-                url: 'api.php?action=share&type=' + network.toLowerCase(),
-                type: 'POST',
-                headers: {
-                    'token' : '$4mr$8xy5vPxsn'
-                },
-                data: {
-                    interests: interests,
-                    skills: skills,
-                    personality: personality,
-                    token : token
+
+            bootbox.prompt("Comenta algo sobre tu resultado", function(result) {
+                if (result !== null) {
+
+
+                    $.ajax({
+                        url: 'api.php?action=share&type=' + network.toLowerCase(),
+                        type: 'POST',
+                        headers: {
+                            'token': '$4mr$8xy5vPxsn'
+                        },
+                        data: {
+                            interests: interests,
+                            skills: skills,
+                            personality: personality,
+                            token: token,
+                            message : result
+                        },
+                        beforeSend: function () {
+                            Orientame.UI.coverOn();
+                        }
+                    }).done(function (r) {
+                        location.href = 'sharer.php?action=share&code=' + r.code ;
+                    }).fail(function (e) {
+                        $.notify({
+                            message: 'Ha ocurrido un error compartiendo el resultado, por favor inténtelo nuevamente'
+                        }, {
+                            type: 'danger',
+                            z_index: 1052
+                        });
+                    }).always(function () {
+                        Orientame.UI.coverOff();
+                    });
+
                 }
-            }).done(function (r) {
-                location.href = 'sharer.php?action=share&code=' + r.code;
-            }).fail(function (e) {
-                alert('Hubo un error compartiendo la información');
             });
+
+
+
         }
 
         return {

@@ -70,7 +70,13 @@ class Orientame {
                         $user = (object)User::setImage($user->id, $images);
 
                         $response = array(
-                            'code' => \Firebase\JWT\JWT::encode(['uid' => $user->id, 'network' => strtolower($_GET['type'])], getenv('APP_KEY'))
+                            'code' => \Firebase\JWT\JWT::encode(
+                                [
+                                    'uid' => $user->id,
+                                    'network' => strtolower($_GET['type']),
+                                    'message' => $_POST['message']
+                                ],
+                                getenv('APP_KEY'))
                         );
 
                     }
