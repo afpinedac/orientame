@@ -41,39 +41,51 @@ class Orientame {
                             'interests' => $_POST['interests'],
                             'skills' => $_POST['skills'],
                             'personality' => $_POST['personality'],
+                            'description' => $_POST['description'],
                         );
+
 
                         Image::configure(array('driver' => 'gd'));
 
-                        $imgCanvas = Image::canvas(820, 850, '#fff');
+                        $fontPath = 'assets/fonts/Antonio-Regular.ttf';
 
-                        $imgCanvas->text('Resultados', 390, 20, function($font) {
-                            $font->file('assets/fonts/eutemia.ttf');
+                        $imgCanvas = Image::canvas(820, 800, '#fff');
+
+                        $imgCanvas->text('Resultados', 390, 20, function($font) use ($fontPath){
+                            $font->file($fontPath);
                             $font->color('#000');
                             $font->align('center');
                             $font->valign('top');
-                            $font->size(30);
+                            $font->size(40);
                         });
 
-                        $imgCanvas->text('Intereses', 600, 60, function($font) {
-                            $font->file('assets/fonts/eutemia.ttf');
-                            $font->color('#000');
-                            $font->align('center');
-                            $font->valign('top');
-                            $font->size(24);
-                        });
-
-                        $imgCanvas->text('Personalidad', 200, 400, function($font) {
-                            $font->file('assets/fonts/eutemia.ttf');
+                        $imgCanvas->text('Personalidad', 180, 80, function($font) use ($fontPath){
+                            $font->file($fontPath);
                             $font->color('#000');
                             $font->align('center');
                             $font->valign('top');
                             $font->size(24);
                         });
 
+                        $imgCanvas->text('Interéses', 600, 80, function($font) use($fontPath) {
+                            $font->file($fontPath);
+                            $font->color('#000');
+                            $font->align('center');
+                            $font->valign('top');
+                            $font->size(24);
+                        });
 
-                        $imgCanvas->text('Habilidades', 600, 400, function($font) {
-                            $font->file('assets/fonts/eutemia.ttf');
+                        $imgCanvas->text('Habilidades', 200, 350, function($font) use($fontPath){
+                            $font->file($fontPath);
+                            $font->color('#000');
+                            $font->align('center');
+                            $font->valign('top');
+                            $font->size(24);
+                        });
+
+
+                        $imgCanvas->text('Descripción', 600, 400, function($font) use($fontPath) {
+                            $font->file($fontPath);
                             $font->color('#000');
                             $font->align('center');
                             $font->valign('top');
@@ -82,14 +94,16 @@ class Orientame {
 
 
                         //$imgCanvas->text('Resultados Orientación Vocacional');
+                        $imgDescription = Image::make($_POST['description']);
                         $imgInterests = Image::make($_POST['interests'])->resize(400, 240);
                         $imgPersonality = Image::make($_POST['personality'])->resize(400, 200);
-                        $imgSkills = Image::make($_POST['skills'])->resize(400, 400);
+                        $imgSkills = Image::make($_POST['skills'])->resize(350,350);
 
 
-                        $imgCanvas->insert($imgInterests, 'top-left', 410, 100);
-                        $imgCanvas->insert($imgPersonality, 'top-left', 10, 460);
-                        $imgCanvas->insert($imgSkills, 'top-left', 410, 440);
+                        $imgCanvas->insert($imgSkills, 'top-left', 10, 400);
+                        $imgCanvas->insert($imgInterests, 'top-left', 410, 120);
+                        $imgCanvas->insert($imgPersonality, 'top-left', 10, 120);
+                        $imgCanvas->insert($imgDescription, 'top-left', 400, 440);
 
 
                         $imgCanvas->save("results/{$user->id}.png");

@@ -40,7 +40,7 @@ class User {
 
     public static function setImage($id, $image) {
 
-        $q = "UPDATE users set img_interests = '{$image['interests']}', img_skills = '{$image['interests']}',img_personality = '{$image['personality']}' WHERE id = {$id}";
+        $q = "UPDATE users set img_interests = '{$image['interests']}', img_skills = '{$image['interests']}',img_personality = '{$image['personality']}', img_description = '{$image['description']}' WHERE id = {$id}";
 
         $r = static::db()->exec($q);
 

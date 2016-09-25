@@ -17,11 +17,6 @@ $(document).ready(function () {
             var description = _convertDescriptionToCanvas();
 
 
-            console.log(description);
-
-            return;
-
-
             bootbox.prompt("Comenta algo sobre tu resultado", function (result) {
                 if (result !== null) {
 
@@ -36,6 +31,7 @@ $(document).ready(function () {
                             interests: interests,
                             skills: skills,
                             personality: personality,
+                            description: description,
                             token: token,
                             message: result
                         },
@@ -58,9 +54,6 @@ $(document).ready(function () {
             });
 
 
-
-
-
         }
 
         var _convertDescriptionToCanvas = function () {
@@ -69,8 +62,8 @@ $(document).ready(function () {
             var c = document.getElementById("canvas-user-description");
             var ctx = c.getContext("2d");
 
-            ctx.font = "14px Georgia";
-            wrapText(ctx, description,20,20,400,10);
+            ctx.font = "10px Georgia";
+            wrapText(ctx, description, 20, 20, 400, 10);
             //_fillTextMultiLine(ctx, description, 10,0);
             // ctx.fillText(description, 10, 50);
 
@@ -84,7 +77,7 @@ $(document).ready(function () {
             for (var ii = 0; ii < cars.length; ii++) {
 
                 var line = "";
-                var words = cars[ii].split(" ");
+                var words = cars[ii].trim().split(" ");
 
                 for (var n = 0; n < words.length; n++) {
                     var testLine = line + words[n] + " ";
@@ -101,7 +94,7 @@ $(document).ready(function () {
                     }
                 }
 
-                context.fillText(line, x, y);
+                context.fillText(line.trim(), x, y);
                 y += lineHeight;
             }
         }
@@ -112,9 +105,6 @@ $(document).ready(function () {
 
 
     })($, _);
-
-
-
 
 
     //Orientame.socialNetwork.render();

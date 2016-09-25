@@ -75,7 +75,7 @@
                 Eres excelente programador debieras trabajar en Google!!
                 Eres excelente programador debieras trabajar en Google!!</p>
 
-            <canvas id="canvas-user-description" width="400" height="400"></canvas>
+            <canvas id="canvas-user-description" width="400"></canvas>
         </div>
 
         <div class="col-sm-6" style="text-align: center">
