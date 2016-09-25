@@ -26,7 +26,7 @@
             <div class="hero-unit center">
                 <h1>Error <small><font face="Tahoma" color="red">Usuario no encontrado</font></small></h1>
                 <br />
-                <p>Es posible que aun no te hayas registrado en la aplicación Android de Orientación vocacional</p>
+                <p><?php echo $user->first_name ?>, Es posible que aun no te hayas registrado en la aplicación Android de Orientación vocacional</p>
                 <p>Descargala ya <a href="<?php echo URL_APP_ANDROID ?>">aquí</a> </p>
                 <br>
                 <a href="profile.php?action=logout" class="btn btn-large btn-info"><i class="icon-home icon-white"></i> Salir</a>
