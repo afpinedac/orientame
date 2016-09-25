@@ -10,6 +10,10 @@
         <ul class="nav navbar-nav navbar-left">
             <li><a href="#">ORIENTACIÓN VOCACIONAL</a></li>
         </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="profile.php?action=logout"> Salir</a></li>
+        </ul>
     </div>
 </nav>
 <br>
@@ -18,6 +22,34 @@
 <div class="row-fluid" style="" id="profile" data-answers="<?php echo $user->answers ?>"
      data-token="<?php echo $user->token ?>"
 >
+
+    <?php
+            if(empty($user->answers)){ ?>
+
+                <div class="container" style="margin-top: 40px">
+                    <div class="row">
+                        <div class="span12">
+                            <div class="hero-unit center">
+                                <h1>Error <small><font face="Tahoma" color="red">Sin respuestas</font></small></h1>
+                                <br />
+                                <p><?php echo $user->first_name?>, Ya has usado la aplicación pero aun no has terminado todo el proceso.</p>
+                                <p>Puedes continuarlo desde la aplicación Android, cuando termines puedes volver aquí para compartir tus resultados.</p>
+                                <br>
+                                <a href="profile.php?action=logout" class="btn btn-large btn-info"><i class="icon-home icon-white"></i> Salir</a>
+                            </div>
+                            <br />
+                            <p></p>
+                            <!-- By ConnerT HTML & CSS Enthusiast -->
+                        </div>
+                    </div>
+                </div>
+
+
+    <?php
+                die();
+            }
+
+    ?>
 
     <div class="col-sm-10 col-sm-offset-1">
 
@@ -38,10 +70,12 @@
                 <p><strong>Email: </strong><?php echo strtolower($user->email) ?></p>
                 </div>
             </div>
-            <p>Eres excelente programador debieras trabajar en Google!!, Eres excelente programador debieras trabajar en Google!!
+            <p id="user-description">Eres excelente programador debieras trabajar en Google!!, Eres excelente programador debieras trabajar en Google!!
                 Eres excelente programador debieras trabajar en Google!!
                 Eres excelente programador debieras trabajar en Google!!
                 Eres excelente programador debieras trabajar en Google!!</p>
+
+            <canvas id="canvas-user-description" width="400" height="400"></canvas>
         </div>
 
         <div class="col-sm-6" style="text-align: center">
@@ -96,8 +130,9 @@
     </div>
 
     <hr>
+    <hr>
 
-    <div class="col-sm-12" style="margin-top: 20px; text-align: center">
+    <div class="col-sm-12" style="margin-top: 20px; text-align: center; margin-bottom: 60px">
         <div class="" style="display: inline-block">
 
 

@@ -9,23 +9,6 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 
 Class Sharer {
 
-    const MESSAGE = 'Mi resultado en Orientación Vocacional';
-
-
-    public static function getConfig($type) {
-
-        if ($type == 'facebook') {
-            return new \Facebook\Facebook([
-                'app_id' => getenv('FB_KEY'),
-                'app_secret' => getenv('FB_SECRET'),
-                'default_graph_version' => 'v2.7'
-            ]);
-        } else if ($type == 'twitter') {
-            return new TwitterOAuth(getenv('TW_KEY'), getenv('TW_SECRET'));
-        }
-    }
-
-
     public static function share($data) {
 
         $data = \Firebase\JWT\JWT::decode($data['code'], getenv('APP_KEY'), ['HS256']);
@@ -37,21 +20,31 @@ Class Sharer {
         switch (strtolower($data->network)) {
             case 'facebook':
 
-                $helper = static::getConfig('facebook')->getRedirectLoginHelper();
-                $loginURL = $helper->getLoginUrl(FB_CALLBACK, ['public_profile', 'publish_actions']);
-                header("location:$loginURL");
+                $image = $image = "./results/{$data->uid}.png";
+
+                $fb = Config::facebook();
+
+                $fb->post('/me/photos', array(
+                    'message' => $data->message,
+                    $fb->fileToUpload($image)
+                ), unserialize($_SESSION['fb_access_token']));
+
+                Flash::message('Resultados compartidos en Facebook');
+                header('Location:' . URL_PROFILE);
+
                 break;
+
 
             case 'twitter':
 
-                $connection = static::getConfig('twitter');
+                $connection = Config::twitter();
                 $request_token = $connection->oauth('oauth/request_token', array('oauth_callback' => TW_CALLBACK));
                 $loginURL = $connection->url('oauth/authorize', array('oauth_token' => $request_token['oauth_token']));
                 header("location:$loginURL");
                 break;
 
             default:
-                header("Location:profile.php?id=" . ($data->uid * FACTOR));
+                header("Location:profile.php");
                 break;
 
         }
@@ -67,9 +60,9 @@ Class Sharer {
         try {
             switch ($data['network']) {
 
-                case 'facebook':
+             /*   case 'facebook':
 
-                    $fb = static::getConfig('facebook');
+                    $fb = Config::facebook();
                     $helper = $fb->getRedirectLoginHelper();
 
                     $accessToken = $helper->getAccessToken();
@@ -86,11 +79,12 @@ Class Sharer {
                         Flash::message('Resultados compartidos en Facebook');
                     }
 
-                    break;
+
+                    break;*/
 
                 case 'twitter':
 
-                    $connection = static::getConfig('twitter');
+                    $connection = Config::twitter();
                     $connection->setTimeouts(10, 15);
 
                     $request_token = $connection->oauth('oauth/access_token', array('oauth_token' => $_REQUEST['oauth_token'], "oauth_verifier" => $_REQUEST['oauth_verifier']));
@@ -117,8 +111,7 @@ Class Sharer {
             unset($_SESSION['network_message']);
         }
 
-
-        header('Location: profile.php?id=' . ($uid * FACTOR));
+        header('Location: profile.php');
     }
 
 }

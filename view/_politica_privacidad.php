@@ -4,6 +4,7 @@
 
         <br>
         <br>
+        <h3><a href="index.php" class="pull-right">< Volver</a></h3>
         <h2>Politica de Privacidad</h2>
         <br>
         <p>Para demostrar nuestro compromiso con la privacidad de su información personal, hemos desarrollado este documento, que describe nuestras prácticas de privacidad de la información que recogemos en

@@ -62,7 +62,7 @@ class User {
 
 
     public static function findByFacebook($id) {
-        return static::db()->query("SELECT id, facebook_id,  email, first_name, last_name, answers  FROM users WHERE facebook_id={$id}")->fetch(PDO::FETCH_ASSOC);
+        return static::db()->query("SELECT id, facebook_id,  email, first_name, last_name, answers, url_image  FROM users WHERE facebook_id={$id}")->fetch(PDO::FETCH_ASSOC);
     }
 
     private static function lastID() {

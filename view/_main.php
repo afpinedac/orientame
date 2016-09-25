@@ -65,8 +65,6 @@ if (\Flash::hasError()) {
     </script>
 
     <style>
-
-
         #cover-display {
             display: none;
             position: fixed;
@@ -78,7 +76,6 @@ if (\Flash::hasError()) {
             background: rgba(255, 255, 255, .8) url('http://www.brainpecks.com/wp-content/uploads/2014/02/clock-loading.gif') 50% 50% no-repeat;
             background-size: 250px 200px;
         }
-
     </style>
 </footer>
 </html>
