@@ -4,6 +4,9 @@ session_start();
 require 'boostrap.php';
 use Abraham\TwitterOAuth\TwitterOAuth;
 
+//test user : open_atxrtbi_user@tfbnw.net
+//pass
+
 Class Sharer {
 
     const MESSAGE = 'Mi resultado en Orientación Vocacional';
@@ -109,12 +112,6 @@ Class Sharer {
             }
         } catch (Exception $e) {
             error_log("Custom:" . $e->getMessage());
-
-
-            echo "<pre>";
-            var_dump($e->getMessage());
-            echo "</pre>";
-            die();
             Flash::error('Ha ocurrido un error, por favor inténtelo mas tarde');
         } finally {
             unset($_SESSION['network_message']);
