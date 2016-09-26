@@ -156,6 +156,9 @@
 <script>
 
     var stage = new createjs.Stage("personality");
+    var answers = $("#profile").data('answers')[1];
+
+
 
     var createRangePicker = function (y, e) {
 
@@ -192,10 +195,10 @@
     function init() {
 
         var ranges = [
-            {position: 200, leftText: 'Introvertido', righText: 'Extrovertido'},
-            {position: 40, leftText: 'Sensitivo', righText: 'Intuitivo'},
-            {position: 30, leftText: 'Pensativo', righText: 'Sentimental'},
-            {position: 90, leftText: 'Juzgador', righText: 'Perceptor'},
+            {position: answers[0]*500, leftText: 'Introvertido', righText: 'Extrovertido'},
+            {position: answers[1]*500, leftText: 'Sensitivo', righText: 'Intuitivo'},
+            {position: answers[2]*500, leftText: 'Pensativo', righText: 'Sentimental'},
+            {position: answers[3]*500, leftText: 'Juzgador', righText: 'Perceptor'},
         ];
         var pickers = [];
 
