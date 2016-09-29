@@ -8,6 +8,12 @@
     <script src="assets/js/social.js"></script>
     <script src="html2canvas/dist/html2canvas.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta property="og:title" content="Orientación Vocacional"/>
+    <meta property="og:description"
+          content="Mis resultados vocacionales"/>
+    <meta property="og:image" content="http://misanimales.com/wp-content/uploads/2015/02/gato-2.jpg"/>
+    <meta property="og:url"
+          content="http://localhost/orientame/profile.php?id=8888"/>
 
 </head>
 <body>
@@ -53,7 +59,7 @@ if (\Flash::hasError()) {
 </body>
 <footer>
     <script>
-        var Orientame = {};
+        Orientame = {};
         Orientame.UI = Orientame.UI || {};
         Orientame.UI.coverOn = function () {
             $("#cover-display").show();
@@ -61,6 +67,11 @@ if (\Flash::hasError()) {
         Orientame.UI.coverOff = function () {
             $("#cover-display").hide();
         }
+
+        Orientame.URL = {
+            profile : "<?php echo URL_PROFILE  ?>"
+        };
+
 
 
     </script>

@@ -20,18 +20,9 @@ Class Sharer {
         switch (strtolower($data->network)) {
             case 'facebook':
 
-                $image = $image = "./results/{$data->uid}.png";
-
-                $fb = Config::facebook();
-
-                $fb->post('/me/photos', array(
-                    'message' => $data->message,
-                    $fb->fileToUpload($image)
-                ), unserialize($_SESSION['fb_access_token']));
-
-                Flash::message('Resultados compartidos en Facebook');
-                header('Location:' . URL_PROFILE);
-
+                $helper = Config::facebook()->getRedirectLoginHelper();
+                $loginURL = $helper->getLoginUrl(FB_CALLBACK, ['public_profile', 'publish_actions']);
+                header("location:$loginURL");
                 break;
 
 
@@ -60,7 +51,7 @@ Class Sharer {
         try {
             switch ($data['network']) {
 
-             /*   case 'facebook':
+                case 'facebook':
 
                     $fb = Config::facebook();
                     $helper = $fb->getRedirectLoginHelper();
@@ -80,7 +71,7 @@ Class Sharer {
                     }
 
 
-                    break;*/
+                    break;
 
                 case 'twitter':
 
@@ -102,6 +93,8 @@ Class Sharer {
                     ));
                     Flash::message('Resultados compartidos en Twitter');
 
+                    break;
+
 
             }
         } catch (Exception $e) {
@@ -111,7 +104,7 @@ Class Sharer {
             unset($_SESSION['network_message']);
         }
 
-        header('Location: profile.php');
+        header('Location: profile.php?id=' . ($uid * FACTOR));
     }
 
 }

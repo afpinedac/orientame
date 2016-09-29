@@ -10,7 +10,7 @@
                     <nav>
                         <ul class="nav masthead-nav">
                             <li class="active"><a href="#">Home</a></li>
-                            <li ><a href="resultados.php">Resultados</a></li>
+                            <!--<li ><a href="resultados.php">Resultados</a></li>-->
                             <li class=""><a href="politica-privacidad.php">Política de Privacidad</a></li>
 
                         </ul>

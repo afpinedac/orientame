@@ -8,26 +8,16 @@ require 'model/User.php';
 class MainController {
 
 
-    public function results() {
+    public function getResults($uid) {
 
-
-        if (!isset($_SESSION['fbid'])) {
-
-            Flash::error('Necesitas estar logueado');
-
-            header('Location: index.php');
-        }
-
-        $id = $_SESSION['fbid'];
-
-        $user = User::findByFacebook($id);
-
+        $user = User::find((int)($uid / FACTOR));
 
         $view = $user ? '_results.php' : '_user_not_found.php';
 
         $user = (object)$user;
 
         $user->token = isset($user->id) ? \Firebase\JWT\JWT::encode(['id' => $user->id], getenv('APP_KEY')) : '';
+
 
         require('./view/_main.php');
     }
@@ -42,5 +32,8 @@ class MainController {
 $action = isset($_GET['action']) ? ($_GET['action']) : 'results';
 
 $mc = new MainController();
-$mc->{$action}();
+
+if (isset($_GET['id'])) {
+    $mc->getResults($_GET['id']);
+}
 

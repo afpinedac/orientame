@@ -10,48 +10,57 @@ $(document).ready(function () {
 
         var share = function (network) {
 
-            //get the canvas images
-            var interests = document.getElementById('interests').toDataURL();
-            var skills = document.getElementById('skills').toDataURL();
-            var personality = document.getElementById('personality').toDataURL();
-            var description = _convertDescriptionToCanvas();
+
+            window.open("https://www.facebook.com/dialog/feed?" +
+                "app_id="+$("#profile").data('app-id')+"&" +
+                "amp;caption=Mis%Resultados&link="+Orientame.URL.profile+$("#profile").data('uid')+"&" +
+                "redirect_uri="+ Orientame.URL.profile+$("#profile").data('uid'),
+                '',
+                'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=500,height=500'
+            );
+
+            /*//get the canvas images
+             var interests = document.getElementById('interests').toDataURL();
+             var skills = document.getElementById('skills').toDataURL();
+             var personality = document.getElementById('personality').toDataURL();
+             var description = _convertDescriptionToCanvas();
 
 
-            bootbox.prompt("Comenta algo sobre tu resultado", function (result) {
-                if (result !== null) {
+             bootbox.prompt("Comenta algo sobre tu resultado", function (result) {
+             if (result !== null) {
 
 
-                    $.ajax({
-                        url: 'api.php?action=share&type=' + network.toLowerCase(),
-                        type: 'POST',
-                        headers: {
-                            'token': '$4mr$8xy5vPxsn'
-                        },
-                        data: {
-                            interests: interests,
-                            skills: skills,
-                            personality: personality,
-                            description: description,
-                            token: token,
-                            message: result
-                        },
-                        beforeSend: function () {
-                            Orientame.UI.coverOn();
-                        }
-                    }).done(function (r) {
-                        location.href = 'sharer.php?action=share&code=' + r.code;
-                    }).fail(function (e) {
-                        $.notify({
-                            message: 'Ha ocurrido un error compartiendo el resultado, por favor inténtelo nuevamente'
-                        }, {
-                            type: 'danger',
-                            z_index: 1052
-                        });
-                        Orientame.UI.coverOff();
-                    })
+             $.ajax({
+             url: 'api.php?action=share&type=' + network.toLowerCase(),
+             type: 'POST',
+             headers: {
+             'token': '$4mr$8xy5vPxsn'
+             },
+             data: {
+             interests: interests,
+             skills: skills,
+             personality: personality,
+             description: description,
+             token: token,
+             message: result
+             },
+             beforeSend: function () {
+             Orientame.UI.coverOn();
+             }
+             }).done(function (r) {
+             location.href = 'sharer.php?action=share&code=' + r.code;
+             }).fail(function (e) {
+             $.notify({
+             message: 'Ha ocurrido un error compartiendo el resultado, por favor inténtelo nuevamente'
+             }, {
+             type: 'danger',
+             z_index: 1052
+             });
+             Orientame.UI.coverOff();
+             })
 
-                }
-            });
+             }
+             });*/
 
 
         }

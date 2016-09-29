@@ -1,3 +1,5 @@
+
+
 <nav class="navbar navbar-default navbar-fixed-top" style="margin-bottom: 400px">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -21,6 +23,8 @@
 
 <div class="row-fluid" style="" id="profile" data-answers="<?php echo $user->answers ?>"
      data-token="<?php echo $user->token ?>"
+     data-app-id="<?php echo getenv('FB_KEY') ?>"
+     data-uid="<?php echo $uid ?>"
 >
 
     <?php
