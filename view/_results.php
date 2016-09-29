@@ -74,12 +74,13 @@
                 <p><strong>Email: </strong><?php echo strtolower($user->email) ?></p>
                 </div>
             </div>
-            <p id="user-description">Eres excelente programador debieras trabajar en Google!!, Eres excelente programador debieras trabajar en Google!!
-                Eres excelente programador debieras trabajar en Google!!
-                Eres excelente programador debieras trabajar en Google!!
-                Eres excelente programador debieras trabajar en Google!!</p>
+            <p id="user-description">
+                <?php echo ucfirst($user->first_name) . " " . ucfirst($user->last_name) ?>, a continuación se muestran tus resultados según las respuestas que diste en el juego de orientación vocacional. Se evaluaron tus intereses (qué te gusta), tu personalidad (cómo eres), y tus habilidades (en qué eres bueno).
 
-            <canvas id="canvas-user-description" width="400"></canvas>
+                    Analizando todo en conjunto, se puede determinar que te podría interesar <span id="interests-recommendation"></span>; <span id="skills-recommendation"></span>
+            </p>
+
+            <!--<canvas id="canvas-user-description" width="400"></canvas>-->
         </div>
 
         <div class="col-sm-6" style="text-align: center">
@@ -89,13 +90,7 @@
             </div>
             <br>
             <div>
-                <p>Tus intereses harán que llegues a la Luna!!, Tus intereses harán que llegues a la Luna!! Tus
-                    intereses harán que llegues a la Luna!! Tus intereses harán que llegues a la Luna!! Tus intereses
-                    harán que llegues a la Luna!!Tus intereses harán que llegues a la Luna!!
-                    Tus intereses harán que llegues a la Luna!!
-                    Tus intereses harán que llegues a la Luna!!
-                    Tus intereses harán que llegues a la Luna!!
-                    Tus intereses harán que llegues a la Luna!!</p>
+                <p id="interests-description"></p>
             </div>
         </div>
 
@@ -112,9 +107,7 @@
             </div>
 
             <div>
-                <p>Eres mas chistoso que Hassam, Eres mas chistoso que Hassam Eres mas chistoso que Hassam Eres mas
-                    chistoso que Hassam Eres mas chistoso que Hassam Eres mas chistoso que Hassam Eres mas chistoso que
-                    Hassam </p>
+                <p id="personality-description"></p>
             </div>
 
 
@@ -125,10 +118,7 @@
                 <canvas style="display: inline-block" id="skills" width="100" height="100"></canvas>
             </div>
             <div>
-                <p>Tienes las habilidades de un Ninja Samurai, Tienes las habilidades de un Ninja Samurai Tienes las
-                    habilidades de un Ninja Samurai Tienes las habilidades de un Ninja Samurai Tienes las habilidades de
-                    un Ninja Samurai Tienes las habilidades de un Ninja Samurai Tienes las habilidades de un Ninja
-                    Samurai,Tienes las habilidades de un Ninja Samurai,Tienes las habilidades de un Ninja Samurai</p>
+                <p id="skills-description"></p>
             </div>
         </div>
     </div>
@@ -140,11 +130,11 @@
         <div class="" style="display: inline-block">
 
 
-            <a style="display: inline" href="#" class="btn btn-block btn-social btn-twitter"
+           <!-- <a style="display: inline" href="#" class="btn btn-block btn-social btn-twitter"
                onclick="Orientame.socialNetwork.share('twitter')">
                 <span class="fa fa-twitter"></span>
                 Compartir en Twitter
-            </a> &nbsp;
+            </a>--> &nbsp;
             <a href="#" style="display: inline" class="btn btn-block btn-social btn-facebook"
                onclick="Orientame.socialNetwork.share('facebook')">
                 <span class="fa fa-facebook"></span>

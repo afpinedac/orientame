@@ -6,7 +6,8 @@
     <script src="assets/build/src/orientame.js"></script>
     <script src="assets/js/charts.js"></script>
     <script src="assets/js/social.js"></script>
-    <script src="html2canvas/dist/html2canvas.js"></script>
+    <script src="assets/js/results.js"></script>
+    <!--<script src="html2canvas/dist/html2canvas.js"></script>-->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta property="og:title" content="Orientación Vocacional"/>
     <meta property="og:description"
