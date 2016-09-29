@@ -13,9 +13,6 @@
             <li><a href="#">ORIENTACIÓN VOCACIONAL</a></li>
         </ul>
 
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="profile.php?action=logout"> Salir</a></li>
-        </ul>
     </div>
 </nav>
 <br>
