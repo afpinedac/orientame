@@ -14,7 +14,7 @@ $(document).ready(function () {
             window.open("https://www.facebook.com/dialog/feed?" +
                 "app_id="+$("#profile").data('app-id')+"&" +
                 "amp;caption=Mis%Resultados&link="+Orientame.URL.profile+$("#profile").data('uid')+"&" +
-                "redirect_uri="+ Orientame.URL.profile+$("#profile").data('uid'),
+                "redirect_uri="+ Orientame.URL.close,
                 '',
                 'toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=500,height=500'
             );

@@ -69,7 +69,8 @@ if (\Flash::hasError()) {
         }
 
         Orientame.URL = {
-            profile : "<?php echo URL_PROFILE  ?>"
+            profile : "<?php echo URL_PROFILE  ?>",
+            close : "<?php echo URL_APP  ?>close.php"
         };
 
 
