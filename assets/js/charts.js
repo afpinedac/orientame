@@ -27,7 +27,7 @@ $(document).ready(function () {
                 labels: ["Realista", "Investigativo", "Artístico", "Social", "Emprendedor", "Convencional"],
                 datasets: [
                     {
-                        label: "Mis intereses",
+                        label: "Intereses",
                         backgroundColor: "rgba(179,181,198,0.2)",
                         borderColor: "rgba(179,181,198,1)",
                         pointBackgroundColor: "rgba(179,181,198,1)",
@@ -47,9 +47,16 @@ $(document).ready(function () {
                     scales: {
                         yAxes: [{
                             ticks: {
-                                beginAtZero: true
+                                display : false,
+                            },
+                            gridLines : {
+                                display : false
+                            },
+                            scaleLabel : {
+                                display : false
                             }
                         }]
+
                     }
                 }
             });
@@ -92,7 +99,7 @@ $(document).ready(function () {
                 labels: ["Razonamiento Aritmético", "Vocabulario", "Espacio tridimensional", "Cálculo", "Comparación de nombres", "Mapeo de Objetos"],
                 datasets: [
                     {
-                        label: "Mis habilidades",
+                        label: "Habilidades",
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
