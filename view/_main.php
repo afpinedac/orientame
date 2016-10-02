@@ -12,9 +12,9 @@
     <meta property="og:title" content="Orientación Vocacional"/>
     <meta property="og:description"
           content="Mis resultados vocacionales"/>
-    <meta property="og:image" content="http://misanimales.com/wp-content/uploads/2015/02/gato-2.jpg"/>
-    <meta property="og:url"
-          content="http://localhost/orientame/profile.php?id=8888"/>
+    <meta property="og:image" content="http://orientacionvocacional.guiame.org/assets/img/brujula.png"/>
+    <!--<meta property="og:url"
+          content="http://localhost/orientame/profile.php?id=8888"/>-->
 
 </head>
 <body>
