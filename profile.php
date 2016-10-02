@@ -35,5 +35,7 @@ $mc = new MainController();
 
 if (isset($_GET['id'])) {
     $mc->getResults($_GET['id']);
+}else{
+    header('Location:index.php');
 }
 

@@ -8,6 +8,7 @@ $dotEnv->load();
 
 //session_start();
 define('FACTOR', 404);
+define('URL_APP_ANDROID','https://play.google.com/store?hl=es');
 
 
 if(getenv('APP_ENV') == 'development'){
@@ -21,3 +22,4 @@ if(getenv('APP_ENV') == 'development'){
     define('URL_PROFILE','http://orientacionvocacional.guiame.org/profile.php?id=');
     define('URL_APP','http://orientacionvocacional.guiame.org/');
 }
+
