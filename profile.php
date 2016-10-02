@@ -10,7 +10,7 @@ class MainController {
 
     public function getResults($uid) {
 
-        $user = User::find((int)($uid / FACTOR));
+        $user = ($uid % FACTOR == 0) ? User::find((int)($uid / FACTOR)) : false;
 
         $view = $user ? '_results.php' : '_user_not_found.php';
 
@@ -35,7 +35,7 @@ $mc = new MainController();
 
 if (isset($_GET['id'])) {
     $mc->getResults($_GET['id']);
-}else{
+} else {
     header('Location:index.php');
 }
 
