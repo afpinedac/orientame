@@ -23,7 +23,7 @@
                 <p class="lead">Aplicación para orientarte en tu decisión de estudiar</p>
                 <p class="lead">
                     <a href="#" class="">
-                        <img height="200" width="300" src="https://blackrockdigital.github.io/startbootstrap-new-age/img/google-play-badge.svg" alt="">
+                        <img height="200" width="300" src="assets/img/google-play-badge.svg" alt="">
                     </a>
                     <!--<a href="#" class="">
                         <img height="60" width="200" src="http://1reddrop.com/wp-content/uploads/2016/09/3app1.png" alt="">
