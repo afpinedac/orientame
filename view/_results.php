@@ -139,12 +139,12 @@
                 <div class="col-xs-12">
                     <h3>Personalidad</h3>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-8">
+                <div class="col-xs-12 col-sm-12 col-md-12">
                     <div>
                         <canvas id="personality" width="500" height="200" style="display: inline-block"></canvas>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-4">
+                <div class="col-xs-12 col-sm-12 col-md-12">
                     <br>
                     <p id="personality-description" style="text-align: justify"></p>
                 </div>
@@ -161,12 +161,12 @@
                 <div class="col-xs-12">
                     <h3>Habilidades</h3>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-7">
+                <div class="col-xs-12 col-sm-12 col-md-12">
                     <div>
                         <canvas style="display: inline-block" id="skills" width="100" height="100"></canvas>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-5">
+                <div class="col-xs-12 col-sm-12 col-md-12">
                     <br>
                     <p id="skills-description" style="text-align: justify"></p>
                 </div>
